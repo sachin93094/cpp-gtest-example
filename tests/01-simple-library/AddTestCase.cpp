@@ -5,3 +5,14 @@
 #include "AddTestCase.h"
 #include "Functions.h"
 
+TEST(AddTest, SimpleTest){
+  EXPECT_EQ(Add(2, 2), 4);
+}
+
+TEST_F(AddTestCase, CommonAddTests) {
+  ASSERT_EQ(Add(17, 0), 17);
+  ASSERT_EQ(Add(0, 37), 37);
+  ASSERT_EQ(Add(-1, -1), -2);
+  ASSERT_EQ(Add(3, -1), 2);
+  ASSERT_EQ(Add(-1, 3), 2);
+}
