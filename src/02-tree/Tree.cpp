@@ -10,18 +10,18 @@ using boost::filesystem::directory_iterator;
 FileNode GetTree(const std::string& path, bool dirs_only) {
   FileNode answer;
   if (!exists(path)) {
-    throw std::invalid_argument("Path not exist");
+    throw std::invalid_argument("Path does not exist");
   }
 
   if (!is_directory(path)) {
-    throw std::invalid_argument("Path is not directory");
+    throw std::invalid_argument("Path is not a directory");
   }
   answer.name = boost::filesystem::path(path).filename().string();
   answer.is_dir = true;
   for (auto& child: directory_iterator(path)) {
     if (is_directory(child)){
       answer.children.push_back(
-          GetTree(boost::filesystem::path(child).string(), dirs_only)
+        GetTree(boost::filesystem::path(child).string(), dirs_only)
       );
     } else {
       if (dirs_only) {
