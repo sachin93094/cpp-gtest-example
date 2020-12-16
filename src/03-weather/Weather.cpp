@@ -24,11 +24,11 @@ float Weather::GetTemperature(const std::string& city) {
 
 cpr::Response Weather::Get(const std::string& city) {
   return cpr::Get(
-      kBaseUrl, cpr::Parameters{
-          {"q", city},
-          {"appid", api_key_},
-          {"units", "metric"}
-      }
+    kBaseUrl, cpr::Parameters{
+      {"q", city},
+      {"appid", api_key_},
+      {"units", "metric"}
+    }
   );
 }
 
@@ -48,7 +48,7 @@ std::string Weather::GetDifferenceString(const std::string &city1, const std::st
 float Weather::FindDiffBetweenTwoCities(const std::string &city1, const std::string& city2) {
   return GetTemperature(city1) - GetTemperature(city2);
 }
+
 void Weather::SetApiKey(const std::string &api_key) {
   api_key_ = api_key;
-
 }

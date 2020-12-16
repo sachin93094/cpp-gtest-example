@@ -7,8 +7,11 @@
 #include <gmock/gmock.h>
 #include <Weather.h>
 
+// Weather uses external url to get data
+// So Get() method should be mocked
+// for correct testing
 class WeatherMock : public Weather {
+ public:
+  // MOCK_METHOD(cpr::Response, Get, (const std::string& location), (override));
+  MOCK_METHOD1(Get, cpr::Response(const std::string& location));
 };
-
-
-
