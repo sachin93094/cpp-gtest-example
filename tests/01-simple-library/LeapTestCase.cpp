@@ -6,7 +6,7 @@
 
 #include <Functions.h>
 
-TEST_F(LeapTestCase, IfCases) {
+TEST(LeapTestCase, IfCases) {
   ASSERT_FALSE(IsLeap(1));
   ASSERT_FALSE(IsLeap(17));
   ASSERT_FALSE(IsLeap(2001));
@@ -19,7 +19,7 @@ TEST_F(LeapTestCase, IfCases) {
   ASSERT_TRUE(IsLeap(2020));
 }
 
-TEST_F(LeapTestCase, ValueErrors) {
+TEST(LeapTestCase, ValueErrors) {
   ASSERT_THROW(IsLeap(0), std::invalid_argument);
   ASSERT_THROW(IsLeap(-25), std::invalid_argument);
 }
