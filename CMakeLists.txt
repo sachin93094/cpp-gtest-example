@@ -11,9 +11,9 @@ find_package(Threads REQUIRED)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
-set(Boost_USE_MULTITHREADED OFF)
 
-if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+# Adjusted code coverage warning to only display for non-Debug builds
+if(NOT CMAKE_BUILD_TYPE STREQUAL "Debug")
     message(WARNING "Code coverage results with an optimized (non-Debug) build may be misleading")
 endif()
 
@@ -22,6 +22,8 @@ ExternalProject_Add(
     GIT_REPOSITORY https://github.com/google/googletest.git
     CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION} -DCMAKE_CXX_STANDARD=${CMAKE_CXX_STANDARD}
 )
+
+# Removed unnecessary Boost_USE_MULTITHREADED
 
 if (APPLE)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
@@ -35,6 +37,7 @@ ExternalProject_Add(
     CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION} -DCMAKE_CXX_STANDARD=${CMAKE_CXX_STANDARD} -DCMAKE_POSITION_INDEPENDENT_CODE=ON
 )
 
+# Modified Boost find_package to explicitly require filesystem and system components
 find_package(Boost REQUIRED COMPONENTS filesystem system)
 include_directories(${Boost_INCLUDE_DIRS})
 
@@ -46,9 +49,7 @@ message("Boost libraries are located at ${Boost_LIBRARY_DIRS}")
 message("Boost libraries are ${Boost_LIBRARIES}")
 
 find_package(PythonInterp 3 REQUIRED)
-
 set(PYTHON_EXECUTABLE "python${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR}")
-
 message(${PYTHON_EXECUTABLE})
 
 add_custom_target(
