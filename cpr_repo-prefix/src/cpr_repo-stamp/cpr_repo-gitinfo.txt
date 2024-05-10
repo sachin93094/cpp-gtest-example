@@ -1,0 +1,15 @@
+# This is a generated file and its contents are an internal implementation detail.
+# The download step will be re-executed if anything in this file changes.
+# No other meaning or use of this file is supported.
+
+method=git
+command=/opt/cmake-3.25.2-linux-x86_64/bin/cmake;-P;/mnt/agent/work/3a1a2f17dc5a16b4/cpr_repo-prefix/tmp/cpr_repo-gitclone.cmake
+source_dir=/mnt/agent/work/3a1a2f17dc5a16b4/cpr_repo-prefix/src/cpr_repo
+work_dir=/mnt/agent/work/3a1a2f17dc5a16b4/cpr_repo-prefix/src
+repository=https://github.com/akhtyamovpavel/cpr.git
+remote=origin
+init_submodules=TRUE
+recurse_submodules=--recursive
+submodules=
+CMP0097=
+

@@ -1,0 +1,1 @@
+cmd='/opt/cmake-3.25.2-linux-x86_64/bin/cmake;-DCMAKE_INSTALL_PREFIX=/mnt/agent/work/3a1a2f17dc5a16b4/3rdparty;-DCMAKE_CXX_STANDARD=14;-DCMAKE_POSITION_INDEPENDENT_CODE=ON;-GUnix Makefiles;<SOURCE_DIR><SOURCE_SUBDIR>'
